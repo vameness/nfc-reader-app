@@ -62,7 +62,7 @@ public class ImageManipulation {
 	 */
 	public static Bitmap createBlackAndWhite(Bitmap src) {
 		int width = src.getWidth();
-		int height = src.getHeight();
+		int height = src.getHeight( );
 		// create output bitmap
 		Bitmap bmOut = Bitmap.createBitmap(width, height, src.getConfig());
 		// color information

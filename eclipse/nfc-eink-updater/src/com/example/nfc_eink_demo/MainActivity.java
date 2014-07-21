@@ -237,8 +237,12 @@ public class MainActivity extends Activity {
 		Bitmap image_rotated_resized_monochrome;
 		image = BitmapFactory.decodeFile(lastModifiedFile.toString());
 		image_rotated = ImageManipulation.rotate(image, 90);
+//		image_rotated_resized = ImageManipulation.getResizedBitmap(
+//				image_rotated, 176, 264);
+		// @Saman Start
 		image_rotated_resized = ImageManipulation.getResizedBitmap(
-				image_rotated, 176, 264);
+				image_rotated, 96, 200);
+		// @Saman End
 
 		image_rotated_resized_monochrome = ImageManipulation
 				.createBlackAndWhite(image_rotated_resized);
