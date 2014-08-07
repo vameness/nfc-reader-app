@@ -208,10 +208,10 @@ public class MainActivity extends Activity {
 
 		// Find the latest file
 		// Delete the info.txt file and config.dat to avoid
-		File dir = new File("/sdcard/screenshots");
-		File f = new File("/sdcard/screenshots/info.txt");
+		File dir = new File("/sdcard/display-tag");
+		File f = new File("/sdcard/display-tag/info.txt");
 		f.delete();
-		File g = new File("/sdcard/screenshots/config.dat");
+		File g = new File("/sdcard/display-tag/config.dat");
 		g.delete();
 
 		// Find the last modified file, presumably with the latest image
@@ -264,7 +264,7 @@ public class MainActivity extends Activity {
 		String test = "";
 		int count = 0;
 		int count_bytes = 0;
-		byte[] image_array = new byte[33 * image_rotated_resized_monochrome.getHeight()];
+		byte[] image_array = new byte[25 * image_rotated_resized_monochrome.getHeight()];
 
 		// TODO Rewrite the following more efficiently (Without string conversion and int parsing, etc)
 

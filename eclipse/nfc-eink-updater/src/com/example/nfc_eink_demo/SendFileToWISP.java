@@ -18,6 +18,7 @@ import android.nfc.Tag;
 import android.nfc.tech.IsoDep;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 
 /**
@@ -185,7 +186,9 @@ public class SendFileToWISP extends AsyncTask<byte[], Integer,  Boolean> {
 	private byte[] writeNBlocks(IsoDep isodep, int numOfBlocks, int chunkIndex,
 			byte[] myImgBuffer, byte flags) {
 		byte[] response;
-
+		
+		Log.d("TEST", "Entered WriteNBlocks");
+				
 		try {
 
 			byte write_multi_block_command[] = new byte[(4 * numOfBlocks) + 2];
@@ -196,14 +199,16 @@ public class SendFileToWISP extends AsyncTask<byte[], Integer,  Boolean> {
 				write_multi_block_command[curBlock + INF_DATA_START_INDEX] = myImgBuffer[curBlock
 						+ chunkIndex * numOfBlocks * 4];
 			}
-
+			
 			response = isodep.transceive(write_multi_block_command);
-
+			
 		} catch (IOException e) {
 			// Throws an error anyway, even if correctly written a block
+			Log.d("TEST", "Exited WriteNBlocks: Error condition:" + e.getMessage());
 			return null;
 		}// end catch
 
+		Log.d("TEST", "********GOT THROUGH WriteNBlocks " + response);
 		return response;
 
 	}// end writeOneBlock
