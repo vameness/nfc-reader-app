@@ -84,6 +84,13 @@ public class SendFileToWISP extends AsyncTask<byte[], Integer,  Boolean> {
 			sendImage(arg0[i]);
 		}
 		
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.exit(0);
 		return true;
 	}
 

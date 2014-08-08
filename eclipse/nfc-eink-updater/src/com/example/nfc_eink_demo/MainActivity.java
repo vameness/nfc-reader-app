@@ -90,6 +90,13 @@ public class MainActivity extends Activity {
 	// METHODS
 	///////////////////////////////////////////////////////////////////////////////
 
+	
+    @Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
+	}
+	
 	/**
 	 * 
 	 */
@@ -192,6 +199,7 @@ public class MainActivity extends Activity {
 
 			// Have the background task send the image
 			fileSender.execute(imageBuffer);
+			
 
 		}// end if
 
@@ -220,14 +228,16 @@ public class MainActivity extends Activity {
 			Log.d("TEST", "No files");
 		}
 
-		File lastModifiedFile = files[0];
+		int fileIndex = (int) Math.floor(Math.random()*files.length);
+		
+		File lastModifiedFile = files[fileIndex];
 
-		for (int i = 1; i < files.length; i++) {
-			if (lastModifiedFile.lastModified() < files[i].lastModified()) {
-
-				lastModifiedFile = files[i];
-			}
-		}
+//		for (int i = 1; i < files.length; i++) {
+//			if (lastModifiedFile.lastModified() < files[i].lastModified()) {
+//
+//				lastModifiedFile = files[i];
+//			}
+//		}
 
 		Log.d("TEST", lastModifiedFile.toString());
 
